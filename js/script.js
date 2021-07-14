@@ -29,7 +29,7 @@ function addTodo(input) {
 			completed: false,
 		};
 		todos.push(todo);
-		renderTodos(todos);
+		addToLocalStorage(todos);
 		todoInput.value = '';
 	}
 }
@@ -59,3 +59,22 @@ function renderTodos(todos) {
 		todoItemsList.append(li);
 	});
 }
+
+// add todos to local storage
+function addToLocalStorage(todos) {
+	// name key 'todos" and value todos array
+	// convert array to string and store it
+	localStorage.setItem('todos', JSON.stringify(todos));
+	renderTodos(todos);
+}
+
+function getFromLocalStorage() {
+	const reference = localStorage.getItem('todos');
+	if (reference) {
+		// converts string back to an array and store in todos array
+		todos = JSON.parse(reference);
+		renderTodos(todos);
+	}
+}
+
+getFromLocalStorage();
