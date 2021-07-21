@@ -8,7 +8,7 @@ body {
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
-	background: hsl(194, 100%, 70%);
+	background: hsl(51, 92%, 51%);
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -38,6 +38,12 @@ ul {
 	list-style-type: none;
 }
 
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+}
+
 .container {
 	min-width: 700px;
 	display: flex;
@@ -47,8 +53,8 @@ ul {
 }
 
 h1 {
-	color: hsl(0, 0%, 100%);
-	font-size: 3rem;
+	color: hsl(0, 0%, 1%);
+	font-size: 2.5rem;
 }
 
 /* To Do Form */
@@ -64,17 +70,19 @@ h1 {
 	padding: 10px;
 	margin-right: 10px;
 	font-size: 1rem;
+	background: hsl(0, 0%, 1%);
+	color: white;
 }
 
 .todo-items {
-	min-width: 350px;
+	min-width: 400px;
 	height: auto;
 }
-
 /* Item style */
 .item {
+	width: 90%;
 	height: auto;
-	background-color: #fff;
+	background-color: hsl(0, 0%, 1%);
 	margin: 1em;
 	padding: 10px;
 	font-size: 1.2rem;
@@ -119,5 +127,22 @@ h1 {
 .text-container {
 	min-width: 100px;
 	height: 50px;
-	background: red;
+}
+
+.todoText {
+	border: none;
+	padding: 0.2em;
+	margin: 0;
+	width: max-content;
+	height: auto;
+	color: white;
+	text-decoration: none;
+	background-color: #0c0c0c;
+	font-size: 0.9em;
+}
+
+.todoText.active {
+	color: white;
+	text-decoration: none;
+	background: hsl(0, 0%, 16%);
 }
