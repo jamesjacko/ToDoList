@@ -82,10 +82,3 @@ const buildDeleteButton = (todo) => {
 	});
 	return deleteButton;
 };
-
-// //------ Local Storage ------
-function addToLocalStorage(todos) {}
-
-function getFromLocalStorage() {}
-
-// getFromLocalStorage();
