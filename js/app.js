@@ -24,7 +24,7 @@ const addTodo = (input) => {
 	}
 };
 
-const renderTodos = (todo) => {
+const renderTodos = () => {
 	ul.innerHTML = '';
 	todos.forEach((item) => {
 		let li = document.createElement('LI');
@@ -36,7 +36,6 @@ const renderTodos = (todo) => {
 		li.append(cb);
 		li.append(db);
 		li.append(itemText);
-
 		ul.append(li);
 	});
 };
@@ -82,3 +81,15 @@ const buildDeleteButton = (todo) => {
 	});
 	return deleteButton;
 };
+
+/* function used from here https://stackoverflow.com/a/21015393 */
+function getTextWidth(text, font) {
+	// re-use canvas object for better performance
+	var canvas =
+		getTextWidth.canvas ||
+		(getTextWidth.canvas = document.createElement('canvas'));
+	var context = canvas.getContext('2d');
+	context.font = font;
+	var metrics = context.measureText(text);
+	return metrics.width;
+}
