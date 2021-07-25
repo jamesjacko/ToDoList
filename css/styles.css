@@ -12,11 +12,20 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
 button {
-	display: inline-block;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 	padding: 0.35em 1.2em;
 	border: 0.1em solid hsl(0, 0%, 0%);
-	margin: 0 0.3em 0.3em 0;
+	margin: 0 0.3em 0.3em 0.9em;
 	background: hsl(0, 0%, 0%);
 	border-radius: 0.12em;
 	box-sizing: border-box;
@@ -72,6 +81,7 @@ h1 {
 	font-size: 1rem;
 	background: hsl(0, 0%, 1%);
 	color: white;
+	font-size: 0.9em;
 }
 
 .todo-items {
@@ -91,6 +101,10 @@ h1 {
 }
 
 .checkbox {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
 	width: 1.5em;
 	height: 1.5em;
 	margin-right: 20px;
@@ -130,6 +144,8 @@ h1 {
 }
 
 .todoText {
+	overflow: hidden;
+	resize: none;
 	border: none;
 	padding: 0.2em;
 	margin: 0;
@@ -138,7 +154,8 @@ h1 {
 	color: white;
 	text-decoration: none;
 	background-color: #0c0c0c;
-	font-size: 0.9em;
+	font-size: 1em;
+	font-family: 'Roboto', sans-serif;
 }
 
 .todoText.active {

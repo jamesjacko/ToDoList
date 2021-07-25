@@ -11,6 +11,16 @@ todoForm.addEventListener('submit', function (e) {
 	addTodo(input.value);
 });
 
+input.addEventListener('input', function () {
+	growText();
+});
+
+const growText = () => {
+	if (input.value.length % input.cols < 1) {
+		input.rows = input.value.length / input.cols + 1;
+	}
+};
+
 const addTodo = (input) => {
 	if (input !== '') {
 		const todo = {
@@ -41,8 +51,11 @@ const renderTodos = () => {
 };
 
 const createTodoText = (todo) => {
-	const itemText = document.createElement('INPUT');
+	const itemText = document.createElement('TEXTAREA');
 	itemText.classList.add('todoText');
+	itemText.addEventListener('input', function (event) {
+		growText();
+	});
 	itemText.value = todo.name;
 	itemText.addEventListener('click', (e) => {
 		e.currentTarget.classList.add('active');
@@ -81,15 +94,3 @@ const buildDeleteButton = (todo) => {
 	});
 	return deleteButton;
 };
-
-/* function used from here https://stackoverflow.com/a/21015393 */
-function getTextWidth(text, font) {
-	// re-use canvas object for better performance
-	var canvas =
-		getTextWidth.canvas ||
-		(getTextWidth.canvas = document.createElement('canvas'));
-	var context = canvas.getContext('2d');
-	context.font = font;
-	var metrics = context.measureText(text);
-	return metrics.width;
-}
