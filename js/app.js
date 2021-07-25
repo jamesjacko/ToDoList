@@ -11,6 +11,16 @@ todoForm.addEventListener('submit', function (e) {
 	addTodo(input.value);
 });
 
+input.addEventListener('input', function () {
+	growText();
+});
+
+const growText = () => {
+	if (input.value.length % input.cols < 1) {
+		input.rows = input.value.length / input.cols + 1;
+	}
+};
+
 const addTodo = (input) => {
 	if (input !== '') {
 		const todo = {
@@ -24,7 +34,7 @@ const addTodo = (input) => {
 	}
 };
 
-const renderTodos = (todo) => {
+const renderTodos = () => {
 	ul.innerHTML = '';
 	todos.forEach((item) => {
 		let li = document.createElement('LI');
@@ -36,14 +46,16 @@ const renderTodos = (todo) => {
 		li.append(cb);
 		li.append(db);
 		li.append(itemText);
-
 		ul.append(li);
 	});
 };
 
 const createTodoText = (todo) => {
-	const itemText = document.createElement('INPUT');
+	const itemText = document.createElement('TEXTAREA');
 	itemText.classList.add('todoText');
+	itemText.addEventListener('input', function (event) {
+		growText();
+	});
 	itemText.value = todo.name;
 	itemText.addEventListener('click', (e) => {
 		e.currentTarget.classList.add('active');
