@@ -10,16 +10,11 @@ todoForm.addEventListener('submit', function (e) {
 	e.preventDefault();
 	addTodo(input.value);
 });
-
-input.addEventListener('input', function () {
-	growText();
-});
-
-const growText = () => {
-	if (input.value.length % input.cols < 1) {
-		input.rows = input.value.length / input.cols + 1;
+input.addEventListener('input', function (event) {
+	if (this.value.length % this.cols < 1) {
+		this.rows = this.value.length / this.cols + 1;
 	}
-};
+});
 
 const addTodo = (input) => {
 	if (input !== '') {
@@ -34,7 +29,7 @@ const addTodo = (input) => {
 	}
 };
 
-const renderTodos = () => {
+const renderTodos = (todo) => {
 	ul.innerHTML = '';
 	todos.forEach((item) => {
 		let li = document.createElement('LI');
@@ -52,15 +47,17 @@ const renderTodos = () => {
 
 const createTodoText = (todo) => {
 	const itemText = document.createElement('TEXTAREA');
+	itemText.setAttribute('id', 'remove-white-space');
 	itemText.classList.add('todoText');
 	itemText.addEventListener('input', function (event) {
-		growText();
+		if (this.value.length % this.cols < 1) {
+			this.rows = this.value.length / this.cols + 1;
+		}
 	});
 	itemText.value = todo.name;
-	itemText.addEventListener('click', (e) => {
-		e.currentTarget.classList.add('active');
-	});
-	// update todo item when user clicks away
+	itemText.rows = itemText.value.length / itemText.cols + 1;
+
+	//update todo item when user clicks away
 	itemText.addEventListener('blur', (e) => {
 		todo.name = e.currentTarget.value;
 		renderTodos();
