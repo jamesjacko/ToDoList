@@ -2,6 +2,7 @@
 const todoForm = document.querySelector('.todo-form');
 const addButton = document.querySelector('.add-button');
 const input = document.querySelector('.todo-input');
+let messageBox = document.querySelector('#message-box');
 const ul = document.getElementById('todoList');
 
 let todos = [];
@@ -10,10 +11,10 @@ todoForm.addEventListener('submit', function (e) {
 	e.preventDefault();
 	addTodo(input.value);
 });
-input.addEventListener('input', function (event) {
-	if (this.value.length % this.cols < 1) {
-		this.rows = this.value.length / this.cols + 1;
-	}
+
+messageBox.addEventListener('input', function () {
+	var scroll_height = messageBox.scrollHeight;
+	messageBox.style.height = scroll_height + 'px';
 });
 
 const addTodo = (input) => {
@@ -26,10 +27,11 @@ const addTodo = (input) => {
 		todos.push(todo);
 		renderTodos();
 		todoForm.reset();
+		messageBox.style.height = 'auto';
 	}
 };
 
-const renderTodos = (todo) => {
+const renderTodos = () => {
 	ul.innerHTML = '';
 	todos.forEach((item) => {
 		let li = document.createElement('LI');
@@ -42,25 +44,24 @@ const renderTodos = (todo) => {
 		li.append(db);
 		li.append(itemText);
 		ul.append(li);
+		//update height of textarea
+		var scroll_height = itemText.scrollHeight;
+		itemText.style.height = scroll_height + 'px';
 	});
 };
 
 const createTodoText = (todo) => {
 	const itemText = document.createElement('TEXTAREA');
-	itemText.setAttribute('id', 'remove-white-space');
+	itemText.setAttribute('id', 'display-text');
 	itemText.classList.add('todoText');
-	itemText.addEventListener('input', function (event) {
-		if (this.value.length % this.cols < 1) {
-			this.rows = this.value.length / this.cols + 1;
-		}
+	itemText.addEventListener('input', function () {
+		var scroll_height = itemText.scrollHeight;
+		itemText.style.height = scroll_height + 'px';
 	});
 	itemText.value = todo.name;
-	itemText.rows = itemText.value.length / itemText.cols + 1;
-
 	//update todo item when user clicks away
 	itemText.addEventListener('blur', (e) => {
 		todo.name = e.currentTarget.value;
-		renderTodos();
 	});
 	return itemText;
 };
