@@ -12,9 +12,13 @@ todoForm.addEventListener('submit', function (e) {
 	addTodo(input.value);
 });
 
+var updateHeight = (element) => {
+	var scroll_height = element.scrollHeight;
+	element.style.height = scroll_height + 'px';
+};
+
 messageBox.addEventListener('input', function () {
-	var scroll_height = messageBox.scrollHeight;
-	messageBox.style.height = scroll_height + 'px';
+	updateHeight(this);
 });
 
 const addTodo = (input) => {
@@ -45,8 +49,7 @@ const renderTodos = () => {
 		li.append(itemText);
 		ul.append(li);
 		//update height of textarea
-		var scroll_height = itemText.scrollHeight;
-		itemText.style.height = scroll_height + 'px';
+		updateHeight(itemText);
 	});
 };
 
@@ -55,8 +58,7 @@ const createTodoText = (todo) => {
 	itemText.setAttribute('id', 'display-text');
 	itemText.classList.add('todoText');
 	itemText.addEventListener('input', function () {
-		var scroll_height = itemText.scrollHeight;
-		itemText.style.height = scroll_height + 'px';
+		updateHeight(this);
 	});
 	itemText.value = todo.name;
 	//update todo item when user clicks away
