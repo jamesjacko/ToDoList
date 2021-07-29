@@ -64,6 +64,7 @@ const createTodoText = (todo) => {
 	//update todo item when user clicks away
 	itemText.addEventListener('blur', (e) => {
 		todo.name = e.currentTarget.value;
+		addToLocalStorage(todos);
 	});
 	return itemText;
 };
@@ -78,6 +79,7 @@ const buildCheckbox = (todo) => {
 		if (e.target.type === 'checkbox') {
 			todo.completed = e.currentTarget.checked;
 			e.target.parentElement.classList.toggle('checked');
+			addToLocalStorage(todos);
 		}
 	});
 	return cb;
@@ -91,6 +93,22 @@ const buildDeleteButton = (todo) => {
 		const div = this.parentElement;
 		div.style.display = 'none';
 		todos = todos.filter((item) => item.id !== todo.id);
+		addToLocalStorage(todos);
 	});
 	return deleteButton;
 };
+
+const addToLocalStorage = (todos) => {
+	localStorage.setItem('todos', JSON.stringify(todos));
+	renderTodos(todos);
+};
+
+const getFromLocalStorage = () => {
+	const reference = localStorage.getItem('todos');
+	if (reference) {
+		todos = JSON.parse(reference);
+		renderTodos(todos);
+	}
+};
+
+getFromLocalStorage();
