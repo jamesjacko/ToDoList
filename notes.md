@@ -10,8 +10,8 @@ This todo app is made up of the following elements, events, and functions:
 		let messageBox = document.querySelector('#message-box');
 		const ul = document.getElementById('todoList');
 	```
-### create empty array
-- Create array to store objects.
+### array
+- Create empty array to store objects.
 	``` javascript
 		let todos = [];
 	```
