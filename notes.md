@@ -1,6 +1,6 @@
 ## ToDoList App
 Explains code structure and logic.
-This todo app is made up of the following element, events, and functions:
+This todo app is made up of the following elements, events, and functions:
 
 ### elements
 
@@ -127,3 +127,4 @@ This todo app is made up of the following element, events, and functions:
 				updateHeight(itemText);
 			});
 		};
+
