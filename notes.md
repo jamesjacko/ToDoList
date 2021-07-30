@@ -1,6 +1,46 @@
 ## ToDoList App
 Explains code structure and logic.
-This todo app is made up of the following functions:
+This todo app is made up of the following element, events, and functions:
+
+### elements
+
+	let todos = [];
+	const todoForm = document.querySelector('.todo-form');
+	const input = document.querySelector('.todo-input');
+	let messageBox = document.querySelector('#message-box');
+	const ul = document.getElementById('todoList');
+	
+### events
+
+- Append form element to submit event listener.
+- Prevent form default  (submitting form action)
+- Call addTodo function with input.value argument
+
+		todoForm.addEventListener('submit', function (e) {
+			e.preventDefault();
+			addTodo(input.value);
+		});
+
+- Append textarea id to input event listener.
+- Call UpdateHeight function and pass this as argument.
+
+		messageBox.addEventListener('input', function () {
+			updateHeight(this);
+		});
+
+### updateHeight function
+
+- Pass element as param. Makes function reusable.
+
+		var updateHeight = (element) => {
+
+- Get scroll height. Append to element. Set all equal to variable.
+			var scroll_height = element.scrollHeight;
+
+- Set style height equal to scroll height.
+
+			element.style.height = scroll_height + 'px';
+		};
 
 ### addTodo function
 
