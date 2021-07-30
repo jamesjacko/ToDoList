@@ -3,6 +3,7 @@ Explains code structure and logic.
 This todo app is made up of the following elements, events, and functions:
 
 ### elements
+- Grab DOM elements.
 	``` javascript
 		let todos = [];
 		const todoForm = document.querySelector('.todo-form');
