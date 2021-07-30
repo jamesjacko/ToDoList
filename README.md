@@ -1,6 +1,6 @@
-# Title: ToDo List
+## Title: ToDo List
 
-## Description:
+### Description:
 
 Uses local storage with CRUD capabilities to add, delete, or update a todo list item.
 
@@ -12,3 +12,4 @@ Uses local storage with CRUD capabilities to add, delete, or update a todo list 
   - script.js
 - index.html
 - readme.md
+- notes.md
