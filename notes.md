@@ -44,7 +44,7 @@ This todo app is made up of the following functions:
 
 		const renderTodos = () => {
 
-- Clear html of ul before writing to it again.
+- Because always iterating through array, each time need to clear html of ul before writing to it again. 
 
 			ul.innerHTML = '';
 - Loop through each todo item. Item can be named anything.
