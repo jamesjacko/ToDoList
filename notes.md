@@ -33,6 +33,7 @@ This todo app is made up of the following functions:
 			todoForm.reset();
 
 - reset form height
+
 			messageBox.style.height = 'auto';
 			}
 		};
