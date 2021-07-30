@@ -10,7 +10,7 @@ This todo app is made up of the following element, events, and functions:
 	let messageBox = document.querySelector('#message-box');
 	const ul = document.getElementById('todoList');
 	
-### events
+### event: Submit form
 
 - Append form element to submit event listener.
 - Prevent form default  (submitting form action)
@@ -20,6 +20,8 @@ This todo app is made up of the following element, events, and functions:
 			e.preventDefault();
 			addTodo(input.value);
 		});
+
+### event: Update height of textarea on input.
 
 - Append textarea id to input event listener.
 - Call UpdateHeight function and pass this as argument.
