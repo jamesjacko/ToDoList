@@ -33,27 +33,26 @@ This todo app is made up of the following functions:
 			todoForm.reset();
 
 - reset form height
-
 			messageBox.style.height = 'auto';
 			}
 		};
-		
+
 ### renderTodos function
 
-	const renderTodos = () => {
-		ul.innerHTML = '';
-		todos.forEach((item) => {
-			let li = document.createElement('LI');
-			li.setAttribute('class', 'item');
-			li.setAttribute('data-key', item.id);
-			const itemText = createTodoText(item);
-			const cb = buildCheckbox(item);
-			const db = buildDeleteButton(item);
-			li.append(cb);
-			li.append(db);
-			li.append(itemText);
-			ul.append(li);
-			//update height of textarea
-			updateHeight(itemText);
-		});
-	};
+		const renderTodos = () => {
+			ul.innerHTML = '';
+			todos.forEach((item) => {
+				let li = document.createElement('LI');
+				li.setAttribute('class', 'item');
+				li.setAttribute('data-key', item.id);
+				const itemText = createTodoText(item);
+				const cb = buildCheckbox(item);
+				const db = buildDeleteButton(item);
+				li.append(cb);
+				li.append(db);
+				li.append(itemText);
+				ul.append(li);
+				//update height of textarea
+				updateHeight(itemText);
+			});
+		};
