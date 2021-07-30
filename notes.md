@@ -5,11 +5,15 @@ This todo app is made up of the following elements, events, and functions:
 ### elements
 - Grab DOM elements.
 	``` javascript
-		let todos = [];
 		const todoForm = document.querySelector('.todo-form');
 		const input = document.querySelector('.todo-input');
 		let messageBox = document.querySelector('#message-box');
 		const ul = document.getElementById('todoList');
+	```
+### create empty array
+- Create array to store objects.
+	``` javascript
+		let todos = [];
 	```
 ### event: Submit form
 
