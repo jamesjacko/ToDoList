@@ -18,7 +18,7 @@ This todo app is made up of the following elements, events, and functions:
 ### event: Submit form
 
 - Append form element to submit event listener.
-- Prevent form default  (submitting form action)
+- Prevent form default  (submitting form action).
 - Call addTodo function with input.value argument
 	``` javascript
 		todoForm.addEventListener('submit', function (e) {
@@ -52,15 +52,15 @@ This todo app is made up of the following elements, events, and functions:
 	```
 ### addTodo function
 
-- Pass input as param (placeholder)
+- Pass input as param (placeholder).
 	``` javascript
 			const addTodo = (input) => {
 	```
-- Check input if it contains something
+- Check input if it contains something.
 	``` javascript
 			if (input !== '') {
 	```
-- Create todo object with three properties
+- Create todo object with three properties.
 	``` javascript
 			const todo = {
 				id: Date.now(),
@@ -68,19 +68,19 @@ This todo app is made up of the following elements, events, and functions:
 				completed: false,
 			};
 	```
-- Push new todo object (on input) to todos array
+- Push new todo object (on input) to todos array.
 	``` javascript
 			todos.push(todo);
 	```
-- Render items by calling renderTodos function
+- Render items by calling renderTodos function.
 	``` javascript
 			renderTodos();
 	```
-- Reset the textarea form
+- Reset the textarea form.
 	``` javascript
 			todoForm.reset();
 	```
-- Reset form height
+- Reset the textarea form height.
 	``` javascript
 			messageBox.style.height = 'auto';
 			}
